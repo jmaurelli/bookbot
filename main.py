@@ -16,10 +16,11 @@ def count_words(words):
 
 def count_characters(text):
     characters_dic = {}
-    lowered_text = text.lower()
-    for characters in lowered_text:
-        if characters not in characters_dic:
-            characters_dic[characters] = 0
-        characters_dic[characters] += 1
+    for characters in text:
+        lowered_text = text.lower()
+        if lowered_text in characters_dic:
+            characters_dic[characters] += 1
+        else:
+            characters_dic[characters] = 1
     return characters_dic
 main()
