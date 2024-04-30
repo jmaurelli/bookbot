@@ -5,6 +5,7 @@ def main():
     print(f"{numb_words} words in this text.")
     numb_characters = count_characters(full_text)
     print(numb_characters)
+    loop_through(numb_characters)
 
 def parse_text(path):
     with open(path) as f:
@@ -22,4 +23,15 @@ def count_characters(text):
             characters_dic[characters] = 0
         characters_dic[characters] += 1
     return characters_dic
+
+def sort_on(dict):
+    pass
+
+def loop_through(provided_dict):
+    empty_list = []
+    for char, value in provided_dict.items():
+        temp_dict = {"letter": char, "count": value}
+        empty_list.append(temp_dict)
+        print(empty_list)
+
 main()
