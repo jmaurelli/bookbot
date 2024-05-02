@@ -2,12 +2,9 @@ def main():
     book_path = "books/frankenstein.txt"
     full_text = parse_text(book_path)
     numb_words = count_words(full_text)
-    #print(f"{numb_words} words in this text.")
     numb_characters = count_characters(full_text)
-    #print(numb_characters)
     list_of_dict = loop_through(numb_characters)
     list_of_dict.sort(reverse=True, key=sort_on)
-    #print(list_of_dict)
     print_results(book_path, numb_words, list_of_dict)
 
 def parse_text(path):
