@@ -2,10 +2,12 @@ def main():
     book_path = "books/frankenstein.txt"
     full_text = parse_text(book_path)
     numb_words = count_words(full_text)
-    print(f"{numb_words} words in this text.")
+    #print(f"{numb_words} words in this text.")
     numb_characters = count_characters(full_text)
-    print(numb_characters)
-    loop_through(numb_characters)
+    #print(numb_characters)
+    list_of_dict = loop_through(numb_characters)
+    list_of_dict.sort(reverse=True, key=sort_on)
+    print(list_of_dict)
 
 def parse_text(path):
     with open(path) as f:
@@ -19,19 +21,22 @@ def count_characters(text):
     characters_dic = {}
     lowered_text = text.lower()
     for characters in lowered_text:
-        if characters not in characters_dic:
-            characters_dic[characters] = 0
-        characters_dic[characters] += 1
+        if characters.isalpha():
+            if characters not in characters_dic:
+                characters_dic[characters] = 0
+            characters_dic[characters] += 1
     return characters_dic
 
 def sort_on(dict):
-    pass
+    return dict["count"]
 
 def loop_through(provided_dict):
-    empty_list = []
+    list_of_dict = []
     for char, value in provided_dict.items():
         temp_dict = {"letter": char, "count": value}
-        empty_list.append(temp_dict)
-        print(empty_list)
+        list_of_dict.append(temp_dict)
+    return list_of_dict
+
+
 
 main()
