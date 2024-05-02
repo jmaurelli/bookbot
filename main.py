@@ -7,7 +7,8 @@ def main():
     #print(numb_characters)
     list_of_dict = loop_through(numb_characters)
     list_of_dict.sort(reverse=True, key=sort_on)
-    print(list_of_dict)
+    #print(list_of_dict)
+    print_results(list_of_dict)
 
 def parse_text(path):
     with open(path) as f:
@@ -37,6 +38,9 @@ def loop_through(provided_dict):
         list_of_dict.append(temp_dict)
     return list_of_dict
 
-
+def print_results(content_to_print):
+    for item in content_to_print:
+        print(f"{item["letter"]} has occured {item["count"]} of times")
+            
 
 main()
